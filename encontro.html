@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha o Local e Opções</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .opcao {
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .opcao.selected {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .opcao:hover {
+            transform: scale(1.05);
+        }
+
+        .opcao img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .opcao h3 {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .checkbox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selected .checkbox {
+            display: flex;
+        }
+
+        .date-time,
+        .comida,
+        .itens {
+            margin: 20px;
+        }
+
+        .date-time input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 5px;
+            width: 200px;
+        }
+
+        .confirm-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .confirm-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Escolha o local e opções para nosso encontro!</h1>
+
+    <div class="container">
+        <div class="opcao" onclick="toggleSelection('local', 'Restaurante', this)">
+            <div class="checkbox">✔</div>
+            <img src="img/Restaurante 1.jpg" alt="Restaurante">
+            <h3>Restaurante</h3>
+        </div>
+
+        <div class="opcao" onclick="toggleSelection('local', 'Cinema', this)">
+            <div class="checkbox">✔</div>
+            <img src="img/Cinema.jpg" alt="Cinema">
+            <h3>Cinema</h3>
+        </div>
+
+        <div class="opcao" onclick="toggleSelection('local', 'Parque', this)">
+            <div class="checkbox">✔</div>
+            <img src="img/parque.jpeg" alt="Parque">
+            <h3>Parque</h3>
+        </div>
+
+        <div class="opcao" onclick="toggleSelection('local', 'Café', this)">
+            <div class="checkbox">✔</div>
+            <img src="img/cafe.jpg" alt="Café">
+            <h3>Café</h3>
+        </div>
+
+        <div class="opcao" onclick="toggleSelection('local', 'Museu', this)">
+            <div class="checkbox">✔</div>
+            <img src="img/museo.jpeg" alt="Museu">
+            <h3>Museu</h3>
+        </div>
+    </div>
+
+    <div class="date-time">
+        <h2>Escolha a data e o horário:</h2>
+        <input type="text" name="data" id="data" placeholder="Selecione a data">
+        <input type="text" name="horario" id="horario" placeholder="Selecione a hora">
+    </div>
+
+    <div class="comida">
+        <h2>Selecione a comida:</h2>
+        <div class="container">
+            <div class="opcao" onclick="selecionar('comida', 'Pizza', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/pizza.jpeg" alt="Pizza">
+                <h3>Pizza</h3>
+            </div>
+
+            <div class="opcao" onclick="selecionar('comida', 'Hambúrguer', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/hambuerguer.jpeg" alt="Hambúrguer">
+                <h3>Hambúrguer</h3>
+            </div>
+
+            <div class="opcao" onclick="selecionar('comida', 'Hot Dog', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/cachorro quente.jpeg" alt="Hot Dog">
+                <h3>Hot Dog</h3>
+            </div>
+
+            <div class="opcao" onclick="selecionar('comida', 'Sushi', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/sushi.jpeg" alt="Sushi">
+                <h3>Sushi</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="itens">
+        <h2>O que levar antes do encontro:</h2>
+        <div class="container">
+            <div class="opcao" onclick="toggleSelection('itens', 'Presente', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/presente.jpeg" alt="Presente">
+                <h3>Presente</h3>
+            </div>
+
+            <div class="opcao" onclick="toggleSelection('itens', 'Flores', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/buque de flores.webp" alt="Flores">
+                <h3>Flores</h3>
+            </div>
+
+            <div class="opcao" onclick="toggleSelection('itens', 'Chocolates', this)">
+                <div class="checkbox">✔</div>
+                <img src="img/chocolate.jpeg" alt="Chocolates">
+                <h3>Chocolates</h3>
+            </div>
+        </div>
+    </div>
+
+    <button class="confirm-btn" onclick="confirmarEncontro()">Confirmar Encontro</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        let escolhas = {
+            local: [],
+            comida: '',
+            itens: []
+        };
+
+        function toggleSelection(topico, item, elemento) {
+            if (topico === 'local') {
+                if (escolhas.local.includes(item)) {
+                    escolhas.local = escolhas.local.filter(i => i !== item);
+                    elemento.classList.remove('selected');
+                    elemento.querySelector('.checkbox').style.display = 'none';
+                } else {
+                    escolhas.local.push(item);
+                    elemento.classList.add('selected');
+                    elemento.querySelector('.checkbox').style.display = 'flex';
+                }
+            } else if (topico === 'itens') {
+                if (escolhas.itens.includes(item)) {
+                    escolhas.itens = escolhas.itens.filter(i => i !== item);
+                    elemento.classList.remove('selected');
+                    elemento.querySelector('.checkbox').style.display = 'none';
+                } else {
+                    escolhas.itens.push(item);
+                    elemento.classList.add('selected');
+                    elemento.querySelector('.checkbox').style.display = 'flex';
+                }
+            }
+        }
+
+        function selecionar(topico, escolha, elemento) {
+            if (topico === 'comida') {
+                const opcoes = document.querySelectorAll(`.${topico} .opcao`);
+                opcoes.forEach(opcao => {
+                    opcao.classList.remove('selected');
+                    opcao.querySelector('.checkbox').style.display = 'none';
+                });
+                elemento.classList.add('selected');
+                elemento.querySelector('.checkbox').style.display = 'flex';
+                escolhas.comida = escolha;
+            }
+        }
+
+        flatpickr("#data", {
+            dateFormat: "d/m/Y",
+            minDate: "today"
+        });
+
+        flatpickr("#horario", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i"
+        });
+
+        function confirmarEncontro() {
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+
+            if (escolhas.local.length && data && horario) {
+                const comida = escolhas.comida || 'Não selecionado';
+                const itens = escolhas.itens.length ? escolhas.itens.join(', ') : 'Nenhum';
+
+                const mensagem = `Encontro confirmado no(s) ${escolhas.local.join(', ')} para o dia ${data} às ${horario}.
+                Comida escolhida: ${comida}.
+                Itens para levar: ${itens}.`;
+
+                const whatsappUrl = `https://wa.me/31996512842?text=${encodeURIComponent(mensagem)}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                alert('Por favor, escolha pelo menos um local, data e horário!');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

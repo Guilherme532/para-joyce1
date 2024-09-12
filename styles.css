@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ff0000;
+    /* Fundo vermelho */
+    position: relative;
+    overflow: hidden;
+}
+
+.foto-fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/img1.avif');
+    background-size: cover;
+    /* Ajusta a imagem para cobrir toda a área */
+    background-position: center;
+    /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    /* Evita que a imagem se repita */
+    z-index: -1;
+    /* Garante que a imagem fique atrás do conteúdo */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.imagem-fundo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Faz a imagem cobrir toda a área da div */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fundo branco com transparência */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    position: relative;
+}
+
+.sim {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+}
+
+.sim:hover {
+    background-color: white;
+    color: #4CAF50;
+}
+
+.nao {
+    background-color: #f44336;
+    color: white;
+    border: 2px solid #f44336;
+    position: relative;
+}
+
+.nao:hover {
+    background-color: white;
+    color: #f44336;
+}
+
+.nao-moving {
+    position: absolute;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Joyce</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #fff;
+            margin-top: 50px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .opcoes {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .opcao {
+            margin: 0 20px;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .opcao:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .sim {
+            background: #28a745;
+        }
+
+        .nao {
+            background: #dc3545;
+            position: relative;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #fff;
+            margin-top: 30px;
+            padding: 0 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Quer sair comigo?</h1>
+    <p class="message">Oi, você ta mal com o negocio da autoescola ne? então que tal isso pra te ajudar</p>
+    <div class="opcoes">
+        <div class="opcao sim" onclick="window.location.href='encontro.html'">Sim</div>
+        <div class="opcao nao" onclick="moverNao(this)">Não</div>
+    </div>
+
+    <script>
+        function moverNao(elemento) {
+            const x = Math.random() * (window.innerWidth - elemento.clientWidth);
+            const y = Math.random() * (window.innerHeight - elemento.clientHeight);
+            elemento.style.position = 'absolute';
+            elemento.style.left = `${x}px`;
+            elemento.style.top = `${y}px`;
+        }
+    </script>
+
+</body>
+
+</html>
